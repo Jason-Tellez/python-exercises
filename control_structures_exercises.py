@@ -67,10 +67,8 @@ num = int(num)
 for m in range(1, 11):
     print(num, 'x', m, '=', num * m)
 #Create a for loop that uses print to create the output shown below.
-mult = 1, 2, 3, 4, 5, 6, 7, 8, 9
-product = 0
-for m in mult:
-    product = m * [m]
+for m in range(1,10):
+    product = str(m) * m
     print(product)
 
 #c break and continue
@@ -165,3 +163,75 @@ if integer >= 1:
 if integer < 1:
     for x in range(1, integer - 1, -1):
         print(body.format(x), "|", body2.format(x ** 2), "|", body.format(x ** 3))
+
+#Bonus. Convert given number grades into letter grades.
+#Prompt the user for a numerical grade from 0 to 100.
+#Display the corresponding letter grade.
+#Prompt the user to continue.
+#Assume that the user will enter valid integers for the grades.
+#The application should only continue if the user agrees to.
+#Grade Ranges:
+#A : 100 - 88
+#B : 87 - 80
+#C : 79 - 67
+#D : 66 - 60
+#F : 59 - 0
+number_grade = int(input("What grade did you receive?"))       #int() ensures input will be an integer
+user_confirmation = input("If you would like to receive your grade, type 'Y'. Otherwise, type anything.")   #variable to confirm user want to receive grade
+if user_confirmation == "y" or user_confirmation == "Y":        #this if condition runs if user wants to receive grade
+    print("Here is your grade.")
+    if number_grade >=88 and number_grade <= 100:
+        print("A")
+    elif number_grade >=87 and number_grade <= 80:
+        print("B")
+    elif number_grade >=67 and number_grade <= 79:
+        print("C")
+    elif number_grade >=60 and number_grade <= 66:
+        print("D")
+    else:
+        print("F")
+else:                                                           #if user decides not to receive grade, this else condition will run and user will not receive letter grade
+    print("Have a nice day!")
+
+#Create a list of dictionaries where each dictionary represents a book that you have read. 
+# Each dictionary in the list should have the keys title, author, and genre. Loop through the list and print out information about each book.
+books = [
+    {
+        'title': 'In the Heart of the Sea: The Tragedy of the Whaleship Essex',
+        'author': 'Nathaniel Philbrick',
+        'genre': 'History'
+    },
+    {
+        'title':  'What Is the What',
+        'author': 'Dave Eggers',
+        'genre': 'fiction'
+    },
+    {
+        'title': 'Green Eggs and Ham',
+        'author': 'Dr. Seuss',
+        'genre': 'epic'
+    },
+    {
+        'title': 'Uneducated',
+        'author': 'Tara Westover',
+        'genre': 'memoir'
+    },
+    {
+        'title': 'Unbroken: A World War II Story of Survival, Resilience, and Redemption',
+        'author': 'Laura Hillenbrand',
+        'genre': 'biography'
+    }
+]
+for book in books:
+    print("Title:", book['title'])
+    print("Author:", book['author'])
+    print("Genre:", book['genre'])
+    print()
+#a. Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
+user_input = input("Enter a genre!")
+for book in books:
+    if book['genre'] == user_input.lower():
+        print([book])
+    else:
+        print("Try again!")
+        break
